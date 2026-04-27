@@ -1,0 +1,1079 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Advisolution365 — Soporte Microsoft 365 para empresas</title>
+<meta name="description" content="Soporte especializado, implementación y consultoría en Microsoft 365. Primera sesión de diagnóstico gratis. Costa Rica.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #0B1628;
+    --navy-mid: #162040;
+    --navy-light: #1E3058;
+    --accent: #0EA5E9;
+    --accent-dim: #0284C7;
+    --accent-glow: rgba(14,165,233,0.15);
+    --white: #F8FAFC;
+    --gray: #94A3B8;
+    --gray-light: #CBD5E1;
+    --gray-dim: #334155;
+    --green: #10B981;
+    --font-display: 'Syne', sans-serif;
+    --font-body: 'DM Sans', sans-serif;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--navy);
+    color: var(--white);
+    font-family: var(--font-body);
+    font-size: 16px;
+    line-height: 1.7;
+    overflow-x: hidden;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.2rem 5%;
+    background: rgba(11,22,40,0.85);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(14,165,233,0.1);
+  }
+
+  .logo {
+    font-family: var(--font-display);
+    font-weight: 800;
+    font-size: 1.2rem;
+    color: var(--white);
+    text-decoration: none;
+    letter-spacing: -0.5px;
+  }
+
+  .logo span { color: var(--accent); }
+
+  nav ul {
+    list-style: none;
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+  }
+
+  nav ul a {
+    font-family: var(--font-body);
+    font-size: 0.875rem;
+    font-weight: 400;
+    color: var(--gray);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  nav ul a:hover { color: var(--white); }
+
+  .nav-cta {
+    background: var(--accent) !important;
+    color: var(--navy) !important;
+    font-weight: 500 !important;
+    padding: 0.5rem 1.25rem;
+    border-radius: 6px;
+    transition: background 0.2s !important;
+  }
+
+  .nav-cta:hover { background: #38BDF8 !important; }
+
+  .hamburger {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+    padding: 4px;
+  }
+
+  .hamburger span {
+    display: block;
+    width: 24px;
+    height: 2px;
+    background: var(--white);
+    border-radius: 2px;
+    transition: all 0.3s;
+  }
+
+  /* ── HERO ── */
+  .hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    padding: 8rem 5% 5rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: -200px; right: -200px;
+    width: 600px; height: 600px;
+    background: radial-gradient(circle, rgba(14,165,233,0.12) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .hero::after {
+    content: '';
+    position: absolute;
+    bottom: -100px; left: -100px;
+    width: 400px; height: 400px;
+    background: radial-gradient(circle, rgba(14,165,233,0.06) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .grid-bg {
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(14,165,233,0.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(14,165,233,0.04) 1px, transparent 1px);
+    background-size: 60px 60px;
+    pointer-events: none;
+  }
+
+  .hero-inner {
+    max-width: 700px;
+    position: relative;
+    z-index: 1;
+    animation: fadeUp 0.8s ease both;
+  }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  .hero-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.8rem;
+    font-weight: 500;
+    color: var(--accent);
+    background: rgba(14,165,233,0.1);
+    border: 1px solid rgba(14,165,233,0.25);
+    padding: 0.4rem 1rem;
+    border-radius: 100px;
+    margin-bottom: 1.5rem;
+    letter-spacing: 0.5px;
+  }
+
+  .hero-tag::before {
+    content: '';
+    width: 6px; height: 6px;
+    background: var(--green);
+    border-radius: 50%;
+    box-shadow: 0 0 0 3px rgba(16,185,129,0.2);
+  }
+
+  h1 {
+    font-family: var(--font-display);
+    font-size: clamp(2.2rem, 5vw, 3.6rem);
+    font-weight: 800;
+    line-height: 1.1;
+    letter-spacing: -1.5px;
+    margin-bottom: 1.5rem;
+    color: var(--white);
+  }
+
+  h1 .highlight {
+    color: var(--accent);
+    position: relative;
+  }
+
+  .hero-sub {
+    font-size: 1.1rem;
+    color: var(--gray);
+    max-width: 560px;
+    margin-bottom: 2.5rem;
+    font-weight: 300;
+    line-height: 1.8;
+  }
+
+  .hero-actions {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    align-items: center;
+  }
+
+  .btn-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--accent);
+    color: var(--navy);
+    font-family: var(--font-body);
+    font-weight: 500;
+    font-size: 0.95rem;
+    padding: 0.9rem 2rem;
+    border-radius: 8px;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+
+  .btn-primary:hover {
+    background: #38BDF8;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(14,165,233,0.3);
+  }
+
+  .btn-secondary {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: transparent;
+    color: var(--white);
+    font-family: var(--font-body);
+    font-weight: 400;
+    font-size: 0.95rem;
+    padding: 0.9rem 2rem;
+    border-radius: 8px;
+    text-decoration: none;
+    border: 1px solid rgba(255,255,255,0.15);
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+
+  .btn-secondary:hover {
+    border-color: rgba(255,255,255,0.35);
+    background: rgba(255,255,255,0.05);
+  }
+
+  .free-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.8rem;
+    color: var(--green);
+    margin-top: 1rem;
+  }
+
+  .free-badge::before {
+    content: '✓';
+    font-weight: 700;
+  }
+
+  /* ── SECTIONS COMMON ── */
+  section {
+    padding: 6rem 5%;
+  }
+
+  .section-label {
+    font-family: var(--font-display);
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 1rem;
+  }
+
+  h2 {
+    font-family: var(--font-display);
+    font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+    font-weight: 700;
+    letter-spacing: -1px;
+    line-height: 1.15;
+    margin-bottom: 1rem;
+  }
+
+  .section-desc {
+    font-size: 1rem;
+    color: var(--gray);
+    max-width: 520px;
+    font-weight: 300;
+    line-height: 1.8;
+  }
+
+  /* ── STATS ── */
+  .stats-bar {
+    background: var(--navy-mid);
+    border-top: 1px solid rgba(14,165,233,0.1);
+    border-bottom: 1px solid rgba(14,165,233,0.1);
+    padding: 2.5rem 5%;
+    display: flex;
+    justify-content: center;
+    gap: 0;
+  }
+
+  .stat {
+    flex: 1;
+    max-width: 200px;
+    text-align: center;
+    padding: 0 2rem;
+    border-right: 1px solid rgba(255,255,255,0.07);
+  }
+
+  .stat:last-child { border-right: none; }
+
+  .stat-num {
+    font-family: var(--font-display);
+    font-size: 2rem;
+    font-weight: 800;
+    color: var(--accent);
+    line-height: 1;
+    margin-bottom: 0.35rem;
+  }
+
+  .stat-label {
+    font-size: 0.8rem;
+    color: var(--gray);
+    font-weight: 300;
+  }
+
+  /* ── SERVICES ── */
+  .services { background: var(--navy); }
+
+  .services-header {
+    max-width: 1100px;
+    margin: 0 auto 3.5rem;
+  }
+
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 1.5rem;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  .service-card {
+    background: var(--navy-mid);
+    border: 1px solid rgba(255,255,255,0.06);
+    border-radius: 12px;
+    padding: 2rem;
+    transition: all 0.3s;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .service-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 2px;
+    background: var(--accent);
+    transform: scaleX(0);
+    transition: transform 0.3s;
+    transform-origin: left;
+  }
+
+  .service-card:hover {
+    border-color: rgba(14,165,233,0.2);
+    transform: translateY(-4px);
+    box-shadow: 0 16px 40px rgba(0,0,0,0.3);
+  }
+
+  .service-card:hover::before { transform: scaleX(1); }
+
+  .service-icon {
+    width: 44px; height: 44px;
+    background: rgba(14,165,233,0.1);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1.25rem;
+    font-size: 1.2rem;
+  }
+
+  .service-card h3 {
+    font-family: var(--font-display);
+    font-size: 1.05rem;
+    font-weight: 600;
+    margin-bottom: 0.75rem;
+    color: var(--white);
+  }
+
+  .service-card p {
+    font-size: 0.875rem;
+    color: var(--gray);
+    line-height: 1.7;
+    font-weight: 300;
+  }
+
+  /* ── FREE CONSULT ── */
+  .free-consult {
+    background: var(--navy-mid);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .free-consult::before {
+    content: '';
+    position: absolute;
+    top: 50%; right: 0;
+    transform: translateY(-50%);
+    width: 500px; height: 500px;
+    background: radial-gradient(circle, rgba(14,165,233,0.08) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .consult-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5rem;
+    align-items: center;
+  }
+
+  .consult-steps {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    margin-top: 2rem;
+  }
+
+  .step {
+    display: flex;
+    gap: 1rem;
+    align-items: flex-start;
+  }
+
+  .step-num {
+    width: 32px; height: 32px;
+    min-width: 32px;
+    background: rgba(14,165,233,0.1);
+    border: 1px solid rgba(14,165,233,0.3);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--font-display);
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: var(--accent);
+    margin-top: 2px;
+  }
+
+  .step-text h4 {
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: 0.95rem;
+    margin-bottom: 0.25rem;
+  }
+
+  .step-text p {
+    font-size: 0.85rem;
+    color: var(--gray);
+    font-weight: 300;
+  }
+
+  .consult-box {
+    background: var(--navy-light);
+    border: 1px solid rgba(14,165,233,0.2);
+    border-radius: 16px;
+    padding: 2.5rem;
+    text-align: center;
+    position: relative;
+  }
+
+  .consult-box::before {
+    content: 'GRATIS';
+    position: absolute;
+    top: -14px; left: 50%; transform: translateX(-50%);
+    background: var(--green);
+    color: #fff;
+    font-family: var(--font-display);
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    padding: 4px 14px;
+    border-radius: 100px;
+  }
+
+  .consult-time {
+    font-family: var(--font-display);
+    font-size: 4rem;
+    font-weight: 800;
+    color: var(--accent);
+    line-height: 1;
+    margin-bottom: 0.25rem;
+  }
+
+  .consult-time span { font-size: 1.5rem; color: var(--gray); }
+
+  .consult-box p {
+    font-size: 0.9rem;
+    color: var(--gray);
+    margin: 1rem 0 2rem;
+    font-weight: 300;
+    line-height: 1.7;
+  }
+
+  /* ── EXPERTISE ── */
+  .expertise { background: var(--navy); }
+
+  .expertise-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5rem;
+    align-items: center;
+  }
+
+  .tags-cloud {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+    margin-top: 2rem;
+  }
+
+  .tag {
+    font-size: 0.8rem;
+    font-weight: 400;
+    padding: 0.4rem 1rem;
+    border-radius: 100px;
+    border: 1px solid rgba(255,255,255,0.1);
+    color: var(--gray-light);
+    background: rgba(255,255,255,0.03);
+    transition: all 0.2s;
+  }
+
+  .tag:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+    background: rgba(14,165,233,0.08);
+  }
+
+  .tag.accent {
+    border-color: rgba(14,165,233,0.3);
+    color: var(--accent);
+    background: rgba(14,165,233,0.08);
+  }
+
+  .profile-card {
+    background: var(--navy-mid);
+    border: 1px solid rgba(255,255,255,0.06);
+    border-radius: 16px;
+    padding: 2.5rem;
+  }
+
+  .profile-top {
+    display: flex;
+    align-items: center;
+    gap: 1.25rem;
+    margin-bottom: 1.5rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+  }
+
+  .avatar {
+    width: 60px; height: 60px;
+    background: linear-gradient(135deg, var(--accent), #0369A1);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--font-display);
+    font-weight: 800;
+    font-size: 0.85rem;
+    color: var(--navy);
+    flex-shrink: 0;
+  }
+
+  .profile-name {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 1.1rem;
+    margin-bottom: 0.2rem;
+  }
+
+  .profile-role {
+    font-size: 0.82rem;
+    color: var(--accent);
+    font-weight: 400;
+  }
+
+  .profile-detail {
+    font-size: 0.875rem;
+    color: var(--gray);
+    line-height: 1.8;
+    font-weight: 300;
+  }
+
+  .exp-rows {
+    margin-top: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .exp-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.82rem;
+  }
+
+  .exp-row-label { color: var(--gray); }
+
+  .exp-row-val {
+    color: var(--white);
+    font-weight: 500;
+    font-family: var(--font-display);
+  }
+
+  /* ── CONTACT ── */
+  .contact {
+    background: var(--navy-mid);
+    text-align: center;
+  }
+
+  .contact-inner {
+    max-width: 640px;
+    margin: 0 auto;
+  }
+
+  .contact h2 { margin-bottom: 0.75rem; }
+
+  .contact .section-desc {
+    margin: 0 auto 3rem;
+    text-align: center;
+  }
+
+  .contact-cards {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-bottom: 2.5rem;
+  }
+
+  .contact-card {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: var(--navy-light);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 10px;
+    padding: 0.85rem 1.25rem;
+    text-decoration: none;
+    color: var(--white);
+    font-size: 0.9rem;
+    transition: all 0.2s;
+  }
+
+  .contact-card:hover {
+    border-color: rgba(14,165,233,0.3);
+    transform: translateY(-2px);
+  }
+
+  .contact-card .icon {
+    width: 32px; height: 32px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+  }
+
+  .icon-mail { background: rgba(14,165,233,0.1); }
+  .icon-wa   { background: rgba(16,185,129,0.1); }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--navy);
+    border-top: 1px solid rgba(255,255,255,0.05);
+    padding: 2rem 5%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+
+  footer .logo { font-size: 1rem; }
+
+  .footer-copy {
+    font-size: 0.8rem;
+    color: var(--gray);
+  }
+
+  .footer-links {
+    display: flex;
+    gap: 1.5rem;
+    list-style: none;
+  }
+
+  .footer-links a {
+    font-size: 0.8rem;
+    color: var(--gray);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .footer-links a:hover { color: var(--white); }
+
+  /* ── LANG TOGGLE ── */
+  .lang-toggle {
+    display: flex;
+    gap: 0;
+    background: rgba(255,255,255,0.05);
+    border-radius: 6px;
+    overflow: hidden;
+    border: 1px solid rgba(255,255,255,0.1);
+  }
+
+  .lang-btn {
+    font-size: 0.75rem;
+    font-weight: 500;
+    color: var(--gray);
+    padding: 5px 12px;
+    cursor: pointer;
+    border: none;
+    background: none;
+    transition: all 0.2s;
+    font-family: var(--font-body);
+  }
+
+  .lang-btn.active {
+    background: var(--accent);
+    color: var(--navy);
+  }
+
+  /* ── MOBILE ── */
+  @media (max-width: 768px) {
+    nav ul { display: none; }
+    nav ul.open {
+      display: flex;
+      flex-direction: column;
+      position: fixed;
+      top: 64px; left: 0; right: 0;
+      background: var(--navy-mid);
+      padding: 1.5rem 5%;
+      border-bottom: 1px solid rgba(14,165,233,0.1);
+      gap: 1.25rem;
+    }
+    .hamburger { display: flex; }
+    .consult-inner,
+    .expertise-inner { grid-template-columns: 1fr; gap: 3rem; }
+    .stats-bar { flex-wrap: wrap; gap: 1.5rem; }
+    .stat { border-right: none; max-width: 45%; }
+    footer { flex-direction: column; text-align: center; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="navbar">
+  <a href="#" class="logo">Advisolution<span>365</span></a>
+  <ul id="nav-menu">
+    <li><a href="#servicios" data-es="Servicios" data-en="Services">Servicios</a></li>
+    <li><a href="#consultoria" data-es="Consultoría gratis" data-en="Free consult">Consultoría gratis</a></li>
+    <li><a href="#nosotros" data-es="Nosotros" data-en="About">Nosotros</a></li>
+    <li><a href="#contacto" class="nav-cta" data-es="Contactar" data-en="Contact">Contactar</a></li>
+  </ul>
+  <div style="display:flex;align-items:center;gap:1rem;">
+    <div class="lang-toggle">
+      <button class="lang-btn active" onclick="setLang('es')">ES</button>
+      <button class="lang-btn" onclick="setLang('en')">EN</button>
+    </div>
+    <div class="hamburger" onclick="toggleMenu()" id="hamburger">
+      <span></span><span></span><span></span>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="inicio">
+  <div class="grid-bg"></div>
+  <div class="hero-inner">
+    <div class="hero-tag" data-es="Especialista Microsoft 365 · Costa Rica" data-en="Microsoft 365 Specialist · Costa Rica">
+      Especialista Microsoft 365 · Costa Rica
+    </div>
+    <h1>
+      <span data-es="Tu empresa merece tecnología que <span class='highlight'>funcione</span>" data-en="Your business deserves technology that <span class='highlight'>works</span>">
+        Tu empresa merece tecnología que <span class="highlight">funcione</span>
+      </span>
+    </h1>
+    <p class="hero-sub" data-es="Soporte especializado, implementación y consultoría en Microsoft 365. Resuelvo problemas reales, configuro tu entorno y ayudo a tu equipo a trabajar sin interrupciones." data-en="Specialized support, implementation, and consulting for Microsoft 365. I solve real problems, configure your environment, and help your team work without interruptions.">
+      Soporte especializado, implementación y consultoría en Microsoft 365. Resuelvo problemas reales, configuro tu entorno y ayudo a tu equipo a trabajar sin interrupciones.
+    </p>
+    <div class="hero-actions">
+      <a href="#consultoria" class="btn-primary">
+        <span data-es="Consultoría gratuita" data-en="Free consultation">Consultoría gratuita</span>
+        <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+      </a>
+      <a href="#servicios" class="btn-secondary">
+        <span data-es="Ver servicios" data-en="View services">Ver servicios</span>
+      </a>
+    </div>
+    <div class="free-badge" data-es="Primera sesión de diagnóstico 100% gratis, sin compromiso" data-en="First diagnostic session 100% free, no strings attached">
+      Primera sesión de diagnóstico 100% gratis, sin compromiso
+    </div>
+  </div>
+</section>
+
+<!-- STATS -->
+<div class="stats-bar">
+  <div class="stat">
+    <div class="stat-num">L1–L3</div>
+    <div class="stat-label" data-es="Niveles de soporte" data-en="Support levels">Niveles de soporte</div>
+  </div>
+  <div class="stat">
+    <div class="stat-num">M365</div>
+    <div class="stat-label" data-es="Certificado & experimentado" data-en="Certified & experienced">Certificado & experimentado</div>
+  </div>
+  <div class="stat">
+    <div class="stat-num">0$</div>
+    <div class="stat-label" data-es="Primera consultoría" data-en="First consultation">Primera consultoría</div>
+  </div>
+  <div class="stat">
+    <div class="stat-num">24h</div>
+    <div class="stat-label" data-es="Tiempo de respuesta" data-en="Response time">Tiempo de respuesta</div>
+  </div>
+</div>
+
+<!-- SERVICES -->
+<section class="services" id="servicios">
+  <div class="services-header">
+    <div class="section-label" data-es="SERVICIOS" data-en="SERVICES">SERVICIOS</div>
+    <h2 data-es="¿Qué puedo hacer por tu empresa?" data-en="What can I do for your business?">¿Qué puedo hacer por tu empresa?</h2>
+    <p class="section-desc" data-es="Desde resolver un problema urgente hasta implementar una arquitectura de seguridad completa. Primero entiendo tu situación, luego propongo la solución." data-en="From solving an urgent problem to implementing a complete security architecture. First I understand your situation, then I propose the solution.">
+      Desde resolver un problema urgente hasta implementar una arquitectura de seguridad completa. Primero entiendo tu situación, luego propongo la solución.
+    </p>
+  </div>
+  <div class="services-grid">
+    <div class="service-card">
+      <div class="service-icon">📧</div>
+      <h3 data-es="Soporte técnico" data-en="Technical support">Soporte técnico</h3>
+      <p data-es="Resolución rápida de problemas en correo, Teams, OneDrive, SharePoint y licenciamiento. Tu equipo no pierde tiempo." data-en="Fast resolution for issues in email, Teams, OneDrive, SharePoint, and licensing. Your team keeps working.">Resolución rápida de problemas en correo, Teams, OneDrive, SharePoint y licenciamiento. Tu equipo no pierde tiempo.</p>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">🔒</div>
+      <h3 data-es="Seguridad e implementación" data-en="Security & implementation">Seguridad e implementación</h3>
+      <p data-es="Configuro MFA, acceso condicional, DKIM/SPF, Defender y Exchange Online Protection desde cero o mejoro lo que ya tienes." data-en="I set up MFA, conditional access, DKIM/SPF, Defender, and Exchange Online Protection from scratch or improve what you have.">Configuro MFA, acceso condicional, DKIM/SPF, Defender y Exchange Online Protection desde cero o mejoro lo que ya tienes.</p>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">⚙️</div>
+      <h3 data-es="Administración de usuarios" data-en="User administration">Administración de usuarios</h3>
+      <p data-es="Gestión de buzones, dominios, flujo de correo, Entra ID / Azure AD, permisos y sincronización de directorios." data-en="Mailbox, domain, mail flow, Entra ID / Azure AD, permissions, and directory sync management.">Gestión de buzones, dominios, flujo de correo, Entra ID / Azure AD, permisos y sincronización de directorios.</p>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">📊</div>
+      <h3 data-es="Consultoría y optimización" data-en="Consulting & optimization">Consultoría y optimización</h3>
+      <p data-es="Reviso tu entorno Microsoft 365 y te indico qué mejorar para reducir costos, aumentar seguridad y obtener más valor de tus licencias." data-en="I review your Microsoft 365 environment and tell you what to improve to cut costs, boost security, and get more value from your licenses.">Reviso tu entorno Microsoft 365 y te indico qué mejorar para reducir costos, aumentar seguridad y obtener más valor de tus licencias.</p>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">🤖</div>
+      <h3 data-es="Automatización con IA" data-en="AI automation">Automatización con IA</h3>
+      <p data-es="Implemento flujos automatizados para atención al cliente, gestión de datos y procesos repetitivos con n8n, ManyChat y OpenAI." data-en="I build automated workflows for customer service, data management, and repetitive processes using n8n, ManyChat, and OpenAI.">Implemento flujos automatizados para atención al cliente, gestión de datos y procesos repetitivos con n8n, ManyChat y OpenAI.</p>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">🎓</div>
+      <h3 data-es="Capacitación" data-en="Training">Capacitación</h3>
+      <p data-es="Entreno a tu equipo para usar mejor Microsoft 365: Teams, Outlook, SharePoint, OneDrive y mejores prácticas de seguridad." data-en="I train your team to better use Microsoft 365: Teams, Outlook, SharePoint, OneDrive, and security best practices.">Entreno a tu equipo para usar mejor Microsoft 365: Teams, Outlook, SharePoint, OneDrive y mejores prácticas de seguridad.</p>
+    </div>
+  </div>
+</section>
+
+<!-- FREE CONSULT -->
+<section class="free-consult" id="consultoria">
+  <div class="consult-inner">
+    <div>
+      <div class="section-label" data-es="PRIMER PASO" data-en="FIRST STEP">PRIMER PASO</div>
+      <h2 data-es="Consultoría de diagnóstico, sin costo" data-en="Diagnostic consultation, at no cost">Consultoría de diagnóstico, sin costo</h2>
+      <p class="section-desc" data-es="Antes de ofrecerte cualquier solución, quiero entender tu situación real. Sin rodeos, sin venderte lo que no necesitas." data-en="Before offering any solution, I want to understand your real situation. No fluff, no upselling.">
+        Antes de ofrecerte cualquier solución, quiero entender tu situación real. Sin rodeos, sin venderte lo que no necesitas.
+      </p>
+      <div class="consult-steps">
+        <div class="step">
+          <div class="step-num">1</div>
+          <div class="step-text">
+            <h4 data-es="Contáctame" data-en="Reach out">Contáctame</h4>
+            <p data-es="Por WhatsApp o correo, cuéntame brevemente qué problema enfrenta tu empresa." data-en="Via WhatsApp or email, briefly tell me what problem your company is facing.">Por WhatsApp o correo, cuéntame brevemente qué problema enfrenta tu empresa.</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">2</div>
+          <div class="step-text">
+            <h4 data-es="Sesión de diagnóstico" data-en="Diagnostic session">Sesión de diagnóstico</h4>
+            <p data-es="En 15 a 20 minutos revisamos tu situación actual y entiendo el dolor real de tu entorno." data-en="In 15 to 20 minutes we review your current situation and I understand the real pain points.">En 15 a 20 minutos revisamos tu situación actual y entiendo el dolor real de tu entorno.</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">3</div>
+          <div class="step-text">
+            <h4 data-es="Propuesta concreta" data-en="Concrete proposal">Propuesta concreta</h4>
+            <p data-es="Te digo exactamente qué necesitas y cómo puedo ayudarte. Sin compromisos si no te convence." data-en="I tell you exactly what you need and how I can help. No commitment if you're not convinced.">Te digo exactamente qué necesitas y cómo puedo ayudarte. Sin compromisos si no te convence.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div>
+      <div class="consult-box">
+        <div class="consult-time">20 <span data-es="minutos" data-en="minutes">minutos</span></div>
+        <p data-es="Una conversación corta puede resolver semanas de frustración con tu tecnología." data-en="A short conversation can resolve weeks of frustration with your technology.">Una conversación corta puede resolver semanas de frustración con tu tecnología.</p>
+        <a href="#contacto" class="btn-primary" style="width:100%;justify-content:center;">
+          <span data-es="Agendar ahora — es gratis" data-en="Schedule now — it's free">Agendar ahora — es gratis</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERTISE -->
+<section class="expertise" id="nosotros">
+  <div class="expertise-inner">
+    <div>
+      <div class="section-label" data-es="EXPERIENCIA" data-en="EXPERIENCE">EXPERIENCIA</div>
+      <h2 data-es="Especialista con experiencia real en empresas" data-en="Specialist with real enterprise experience">Especialista con experiencia real en empresas</h2>
+      <p class="section-desc" data-es="No solo conocemos la teoría. Hemos trabajado en soporte L1, L2 y L3 resolviendo incidentes críticos, gestionando escalaciones y documentando soluciones en entornos empresariales reales." data-en="We don't just know the theory. We've worked in L1, L2, and L3 support resolving critical incidents, managing escalations, and documenting solutions in real enterprise environments.">
+        No solo conocemos la teoría. Hemos trabajado en soporte L1, L2 y L3 resolviendo incidentes críticos, gestionando escalaciones y documentando soluciones en entornos empresariales reales.
+      </p>
+      <div class="tags-cloud">
+        <span class="tag accent">Exchange Online</span>
+        <span class="tag accent">Entra ID / Azure AD</span>
+        <span class="tag accent">Microsoft Defender</span>
+        <span class="tag">Teams</span>
+        <span class="tag">SharePoint</span>
+        <span class="tag">OneDrive</span>
+        <span class="tag">MFA</span>
+        <span class="tag">Acceso Condicional</span>
+        <span class="tag">DKIM / SPF</span>
+        <span class="tag">EOP</span>
+        <span class="tag">Flujo de correo</span>
+        <span class="tag">Licenciamiento</span>
+        <span class="tag">n8n</span>
+        <span class="tag">OpenAI</span>
+      </div>
+    </div>
+    <div>
+      <div class="profile-card">
+        <div class="profile-top">
+          <div class="avatar">A365</div>
+          <div>
+            <div class="profile-name">Advisolution365</div>
+            <div class="profile-role" data-es="Microsoft 365 Specialist" data-en="Microsoft 365 Specialist">Microsoft 365 Specialist</div>
+          </div>
+        </div>
+        <p class="profile-detail" data-es="Equipo especializado en soporte técnico Microsoft 365 con experiencia en entornos empresariales. Orientados a resultados, con capacidad para resolver incidencias críticas, documentar soluciones y comunicar claramente tanto a equipos técnicos como gerenciales." data-en="Microsoft 365 technical support team with enterprise environment experience. Results-oriented, with the ability to resolve critical incidents, document solutions, and communicate clearly to both technical teams and management.">
+          Equipo especializado en soporte técnico Microsoft 365 con experiencia en entornos empresariales. Orientados a resultados, con capacidad para resolver incidencias críticas, documentar soluciones y comunicar claramente tanto a equipos técnicos como gerenciales.
+        </p>
+        <div class="exp-rows">
+          <div class="exp-row">
+            <span class="exp-row-label" data-es="Experiencia" data-en="Experience">Experiencia</span>
+            <span class="exp-row-val" data-es="Soporte L1, L2, L3" data-en="L1, L2, L3 support">Soporte L1, L2, L3</span>
+          </div>
+          <div class="exp-row">
+            <span class="exp-row-label">Plataforma</span>
+            <span class="exp-row-val">Microsoft 365</span>
+          </div>
+          <div class="exp-row">
+            <span class="exp-row-label" data-es="Ubicación" data-en="Location">Ubicación</span>
+            <span class="exp-row-val">Costa Rica</span>
+          </div>
+          <div class="exp-row">
+            <span class="exp-row-label" data-es="Modalidad" data-en="Mode">Modalidad</span>
+            <span class="exp-row-val" data-es="Soporte remoto" data-en="Remote support">Soporte remoto</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact" id="contacto">
+  <div class="contact-inner">
+    <div class="section-label" data-es="CONTACTO" data-en="CONTACT">CONTACTO</div>
+    <h2 data-es="Hablemos esta semana" data-en="Let's talk this week">Hablemos esta semana</h2>
+    <p class="section-desc" data-es="¿Tienes un problema con Microsoft 365 o quieres mejorar la tecnología de tu empresa? Escríbeme y coordinamos tu consultoría gratuita." data-en="Got a Microsoft 365 issue or want to improve your company's tech? Reach out and let's schedule your free consultation.">
+      ¿Tienes un problema con Microsoft 365 o quieres mejorar la tecnología de tu empresa? Escríbeme y coordinamos tu consultoría gratuita.
+    </p>
+    <div class="contact-cards">
+      <a href="mailto:soporte@advisolution365.com" class="contact-card">
+        <div class="icon icon-mail">📧</div>
+        <span>soporte@advisolution365.com</span>
+      </a>
+      <a href="https://wa.me/50670465509" class="contact-card" id="wa-link">
+        <div class="icon icon-wa">💬</div>
+        <span data-es="WhatsApp directo" data-en="Direct WhatsApp">WhatsApp directo</span>
+      </a>
+    </div>
+    <a href="mailto:soporte@advisolution365.com" class="btn-primary" style="margin:0 auto;">
+      <span data-es="Enviar mensaje" data-en="Send message">Enviar mensaje</span>
+      <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+    </a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <a href="#" class="logo">Advisolution<span>365</span></a>
+  <p class="footer-copy" data-es="© 2025 Advisolution365 · Costa Rica" data-en="© 2025 Advisolution365 · Costa Rica">© 2025 Advisolution365 · Costa Rica</p>
+  <ul class="footer-links">
+    <li><a href="#servicios" data-es="Servicios" data-en="Services">Servicios</a></li>
+    <li><a href="#consultoria" data-es="Consultoría" data-en="Consultation">Consultoría</a></li>
+    <li><a href="#contacto" data-es="Contacto" data-en="Contact">Contacto</a></li>
+  </ul>
+</footer>
+
+<script>
+  var currentLang = 'es';
+
+  function setLang(lang) {
+    currentLang = lang;
+    document.querySelectorAll('.lang-btn').forEach(function(b, i) {
+      b.classList.toggle('active', (i === 0 && lang === 'es') || (i === 1 && lang === 'en'));
+    });
+    document.querySelectorAll('[data-es]').forEach(function(el) {
+      var val = el.getAttribute('data-' + lang);
+      if (!val) return;
+      if (el.tagName === 'H1' || el.querySelector('span')) {
+        el.innerHTML = val;
+      } else {
+        el.textContent = val;
+      }
+    });
+  }
+
+  function toggleMenu() {
+    var menu = document.getElementById('nav-menu');
+    menu.classList.toggle('open');
+  }
+
+  document.addEventListener('click', function(e) {
+    var menu = document.getElementById('nav-menu');
+    var ham = document.getElementById('hamburger');
+    if (!menu.contains(e.target) && !ham.contains(e.target)) {
+      menu.classList.remove('open');
+    }
+  });
+
+  document.querySelectorAll('a[href^="#"]').forEach(function(a) {
+    a.addEventListener('click', function(e) {
+      var target = document.querySelector(this.getAttribute('href'));
+      if (target) {
+        e.preventDefault();
+        document.getElementById('nav-menu').classList.remove('open');
+        target.scrollIntoView({ behavior: 'smooth' });
+      }
+    });
+  });
+</script>
+</body>
+</html>
